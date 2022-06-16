@@ -1,25 +1,84 @@
-import { Fade } from 'react-slideshow-image';
-import 'react-slideshow-image/dist/styles.css'
+import { useEffect, useState } from "react"; 
+import { mintNFT } from "../interact.js";
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
-import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
+export const Header = (props) => {
+
+  //State variables
+  const [status, setStatus] = useState("");
+  const [numberNFT, setNumberNFT] = useState("");
+ 
+  useEffect(() => { 
+     async function fetchData() {
+        setNumberNFT(1) ;
+        setStatus('');
+     };
+     fetchData();
+  }, []);
 
 
-
-export default function ImageCarousel({ images }) {
-  const settings = {
-    infinite: true,
-    dots: true,
-    slidesToShow: 1,
-    arrows: true,
-    slidesToScroll: 1,
-    lazyLoad: true
+  const onMintPressed = async () => { 
+     const { success,status } = await mintNFT(numberNFT);
+     if(success=== true){
+          toast.success(status, {
+                                        position: "bottom-center",
+                                        autoClose: 5000,
+                                        hideProgressBar: false,
+                                        closeOnClick: true,
+                                        pauseOnHover: true,
+                                        draggable: true,
+                                        progress: undefined,
+                                        });
+     }else{
+         toast.error(status , {
+                        position: "bottom-center",
+                        autoClose: 5000,
+                        hideProgressBar: false,
+                        closeOnClick: true,
+                        pauseOnHover: true,
+                        draggable: true,
+                        progress: undefined,
+                        });
+     }
+    
   };
-  console.log(images);
+
   return (
-    <div>
-      <Slider {...settings}></Slider>
-    </div>
-  );
+    <header id='header'>
+      <div className='intro'>
+        <div className='overlay'>
+          <div className='container'>
+            <div className='row'>
+              <div className='col-md-8 col-md-offset-2 intro-text'>
+                  <form>
+                    <input
+                      type="number"
+                      value={numberNFT}
+                      min="1"
+                      placeholder="e.g. 5"
+                      onChange={(event) => setNumberNFT(event.target.value)}
+                    />
+                  </form>
+                   <button id="mintButton" className='btn btn-custom btn-lg' onClick={onMintPressed}>
+                    Issue NFT
+                  </button>
+                   <p id="status">
+                    {status}
+                   </p>
+                <p>{props.data ? props.data.paragraph : 'Loading'}</p>
+                {' '}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+  )
+
+
+
+
 }
+
+

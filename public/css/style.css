@@ -457,25 +457,25 @@ header .intro-text {
   padding: 10px 0 0;
   color: #888;
 }
-/* issuenft Section */
-#issuenft {
+/* Contact Section */
+#contact {
   padding: 100px 0 60px;
   background: linear-gradient(to right, #6372ff 0%, #5ca9fb 100%);
   color: rgba(255, 255, 255, 0.75);
 }
-#issuenft .section-title {
+#contact .section-title {
   margin-bottom: 40px;
 }
-#issuenft .section-title p {
+#contact .section-title p {
   font-size: 16px;
 }
-#issuenft h2 {
+#contact h2 {
   color: #fff;
   margin-top: 10px;
   margin-bottom: 15px;
   padding-bottom: 15px;
 }
-#issuenft .section-title h2::after {
+#contact .section-title h2::after {
   position: absolute;
   content: "";
   background: rgba(255, 255, 255, 0.3);
@@ -484,26 +484,26 @@ header .intro-text {
   bottom: 0;
   left: 30px;
 }
-#issuenft h3 {
+#contact h3 {
   color: #fff;
   margin-top: 80px;
   margin-bottom: 25px;
   padding-bottom: 20px;
   font-weight: 400;
 }
-#issuenft form {
+#contact form {
   padding-top: 20px;
 }
-#issuenft .text-danger {
+#contact .text-danger {
   color: #cc0033;
   text-align: left;
 }
-#issuenft .btn-custom {
+#contact .btn-custom {
   margin: 30px 0;
   background: transparent;
   border: 2px solid #fff;
 }
-#issuenft .btn-custom:hover {
+#contact .btn-custom:hover {
   color: #1f386e;
   background: #fff;
 }
@@ -513,7 +513,7 @@ label {
   font-family: "Open Sans", sans-serif;
   float: left;
 }
-#issuenft .form-control {
+#contact .form-control {
   display: block;
   width: 100%;
   padding: 6px 12px;
@@ -530,7 +530,7 @@ label {
   -o-transition: none;
   transition: none;
 }
-#issuenft .form-control:focus {
+#contact .form-control:focus {
   border-color: #999;
   outline: 0;
   -webkit-box-shadow: transparent;
@@ -548,28 +548,28 @@ label {
 .form-control:-ms-input-placeholder {
   color: #777;
 }
-#issuenft .issuenft-item {
+#contact .contact-item {
   margin: 20px 0;
 }
-#issuenft .issuenft-item span {
+#contact .contact-item span {
   color: rgba(255, 255, 255, 1);
   margin-bottom: 10px;
   display: block;
 }
-#issuenft .issuenft-item i.fa {
+#contact .contact-item i.fa {
   margin-right: 10px;
 }
-#issuenft .social {
+#contact .social {
   border-top: 1px solid rgba(255, 255, 255, 0.15);
   padding-top: 50px;
   margin-top: 50px;
   text-align: center;
 }
-#issuenft .social ul li {
+#contact .social ul li {
   display: inline-block;
   margin: 0 20px;
 }
-#issuenft .social i.fa {
+#contact .social i.fa {
   font-size: 22px;
   width: 48px;
   height: 48px;
@@ -579,7 +579,7 @@ label {
   border-radius: 50%;
   transition: all 0.3s;
 }
-#issuenft .social i.fa:hover {
+#contact .social i.fa:hover {
   color: #608dfd;
   background: #fff;
 }
