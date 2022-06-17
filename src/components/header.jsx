@@ -1,49 +1,22 @@
 import { useEffect, useState } from "react"; 
-import { mintNFT } from "../interact.js";
-import { toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
 
 export const Header = (props) => {
+  const [value, setValue] = useState("default");
 
-  //State variables
-  const [status, setStatus] = useState("");
-  const [numberNFT, setNumberNFT] = useState("");
- 
-  useEffect(() => { 
-     async function fetchData() {
-        setNumberNFT(1) ;
-        setStatus('');
-     };
-     fetchData();
-  }, []);
-
-
-  const onMintPressed = async () => { 
-     const { success,status } = await mintNFT(numberNFT);
-     if(success=== true){
-          toast.success(status, {
-                                        position: "bottom-center",
-                                        autoClose: 5000,
-                                        hideProgressBar: false,
-                                        closeOnClick: true,
-                                        pauseOnHover: true,
-                                        draggable: true,
-                                        progress: undefined,
-                                        });
-     }else{
-         toast.error(status , {
-                        position: "bottom-center",
-                        autoClose: 5000,
-                        hideProgressBar: false,
-                        closeOnClick: true,
-                        pauseOnHover: true,
-                        draggable: true,
-                        progress: undefined,
-                        });
-     }
-    
+  const handleChange = (e) => {
+    setValue(e.target.value);
   };
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log(value);
+  };
+  
+  const tableStyle = {
+	  "margin-left": "auto",
+	  "margin-right": "auto"
+  }
+  
   return (
     <header id='header'>
       <div className='intro'>
@@ -52,22 +25,50 @@ export const Header = (props) => {
             <div className='row'>
               <div className='col-md-8 col-md-offset-2 intro-text'>
                   <form>
-                    <input
-                      type="number"
-                      value={numberNFT}
-                      min="1"
-                      placeholder="e.g. 5"
-                      onChange={(event) => setNumberNFT(event.target.value)}
-                    />
+					<table style={tableStyle}>
+						<tr >
+							<input
+							  type="number"
+							  min="1"
+							  placeholder="NFT Qty"  
+							/>
+						</tr>
+						<br />
+						<tr>
+							<select defaultValue={value} onChange={handleChange} id="choices">
+							  <option value="default" disabled hidden>
+								Choose the Token Type
+							  </option>
+							  <option value="rewards">REWARDS</option>
+							  <option value="awards">AWARDS</option>
+							  <option value="access">ACCESS</option>
+							</select>
+						</tr>
+						<br />
+						<br />
+						<tr>
+							<font size="5"> Or you can upload file with details</font>
+							<br />
+							<br />
+							<input type="file" id="myFile" name="filename" />
+							
+						</tr>
+						<br />
+						<br />
+						<tr >
+							<input
+							  type="string"
+							  placeholder="Blockchain Address"  
+							/>
+						</tr>
+						<br />
+						<tr>		  
+						   <button id="mintButton" className='btn btn-custom btn-lg' >
+							Issue NFT
+						  </button>
+						</tr>
+					</table>
                   </form>
-                   <button id="mintButton" className='btn btn-custom btn-lg' onClick={onMintPressed}>
-                    Issue NFT
-                  </button>
-                   <p id="status">
-                    {status}
-                   </p>
-                <p>{props.data ? props.data.paragraph : 'Loading'}</p>
-                {' '}
               </div>
             </div>
           </div>

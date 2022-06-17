@@ -8,7 +8,7 @@ export const Navigation = (props) => {
           <div className='container'>
             <div className='navbar-header'>
               <a className='navbar-brand page-scroll' href='#page-top'>
-                JPMC Metaverse
+                JPMC Meta Yantra
               </a>{' '}
             </div>
 
@@ -24,12 +24,6 @@ export const Navigation = (props) => {
                 <li>
                   <a href='#issuenft' className='page-scroll'>
                     ISSUE NFT
-                  </a>
-                </li>
-                
-                <li>
-                  <a href='#mynft' className='page-scroll'>
-                    My NFT
                   </a>
                 </li>
                 
